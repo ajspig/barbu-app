@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbu Card Game Scoring App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Barbu Scoring App</h1>
+        </header>
+
+        <!-- Game Setup Section -->
+        <section id="setup-section" class="game-section">
+            <h2>Game Setup</h2>
+            <div class="player-setup">
+                <h3>Enter Player Names</h3>
+                <form id="player-form">
+                    <div class="player-inputs">
+                        <div class="player-input">
+                            <label for="player1">Player 1:</label>
+                            <input type="text" id="player1" name="player1" required>
+                        </div>
+                        <div class="player-input">
+                            <label for="player2">Player 2:</label>
+                            <input type="text" id="player2" name="player2" required>
+                        </div>
+                        <div class="player-input">
+                            <label for="player3">Player 3:</label>
+                            <input type="text" id="player3" name="player3" required>
+                        </div>
+                        <div class="player-input">
+                            <label for="player4">Player 4:</label>
+                            <input type="text" id="player4" name="player4" required>
+                        </div>
+                    </div>
+                    <button type="submit" id="start-game">Start Game</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Game Progress Section -->
+        <section id="game-section" class="game-section hidden">
+            <div class="game-header">
+                <div class="dealer-info">
+                    <h2>Current Dealer: <span id="current-dealer"></span></h2>
+                    <div class="progress-info">
+                        <span>Hand <span id="current-hand">1</span> of 28</span>
+                    </div>
+                </div>
+                <div class="available-contracts">
+                    <h3>Available Contracts:</h3>
+                    <ul id="contracts-list"></ul>
+                </div>
+            </div>
+
+            <!-- Contract Selection -->
+            <div class="contract-selection">
+                <h3>Select Contract</h3>
+                <select id="contract-select">
+                    <option value="">Choose a contract...</option>
+                </select>
+                <button id="confirm-contract">Confirm Contract</button>
+            </div>
+
+            <!-- Doubling Section -->
+            <div id="doubling-section" class="doubling-section hidden">
+                <h3>Doubling Phase</h3>
+                <div id="doubling-instructions"></div>
+                <div id="doubling-options"></div>
+                <button id="confirm-doubles">Confirm Doubles</button>
+            </div>
+
+            <!-- Bidding Section (for Trumps) -->
+            <div id="bidding-section" class="bidding-section hidden">
+                <h3>Bid Points</h3>
+                <div class="bid-inputs">
+                    <div class="bid-input">
+                        <label for="bid-player1">Player 1 Bid:</label>
+                        <input type="number" id="bid-player1" min="0" max="65">
+                    </div>
+                    <div class="bid-input">
+                        <label for="bid-player2">Player 2 Bid:</label>
+                        <input type="number" id="bid-player2" min="0" max="65">
+                    </div>
+                    <div class="bid-input">
+                        <label for="bid-player3">Player 3 Bid:</label>
+                        <input type="number" id="bid-player3" min="0" max="65">
+                    </div>
+                    <div class="bid-input">
+                        <label for="bid-player4">Player 4 Bid:</label>
+                        <input type="number" id="bid-player4" min="0" max="65">
+                    </div>
+                </div>
+                <button id="confirm-bids">Confirm Bids</button>
+            </div>
+
+            <!-- Domino Position Selection -->
+            <div id="domino-section" class="domino-section hidden">
+                <h3>Domino Finishing Positions</h3>
+                <div class="position-inputs">
+                    <div class="position-input">
+                        <label for="position-player1">Player 1 Position:</label>
+                        <select id="position-player1">
+                            <option value="">Select position</option>
+                            <option value="1">1st (45 points)</option>
+                            <option value="2">2nd (20 points)</option>
+                            <option value="3">3rd (5 points)</option>
+                            <option value="4">4th (-5 points)</option>
+                        </select>
+                    </div>
+                    <div class="position-input">
+                        <label for="position-player2">Player 2 Position:</label>
+                        <select id="position-player2">
+                            <option value="">Select position</option>
+                            <option value="1">1st (45 points)</option>
+                            <option value="2">2nd (20 points)</option>
+                            <option value="3">3rd (5 points)</option>
+                            <option value="4">4th (-5 points)</option>
+                        </select>
+                    </div>
+                    <div class="position-input">
+                        <label for="position-player3">Player 3 Position:</label>
+                        <select id="position-player3">
+                            <option value="">Select position</option>
+                            <option value="1">1st (45 points)</option>
+                            <option value="2">2nd (20 points)</option>
+                            <option value="3">3rd (5 points)</option>
+                            <option value="4">4th (-5 points)</option>
+                        </select>
+                    </div>
+                    <div class="position-input">
+                        <label for="position-player4">Player 4 Position:</label>
+                        <select id="position-player4">
+                            <option value="">Select position</option>
+                            <option value="1">1st (45 points)</option>
+                            <option value="2">2nd (20 points)</option>
+                            <option value="3">3rd (5 points)</option>
+                            <option value="4">4th (-5 points)</option>
+                        </select>
+                    </div>
+                </div>
+                <button id="confirm-positions">Confirm Positions</button>
+            </div>
+
+            <!-- Score Entry Section -->
+            <div id="scoring-section" class="scoring-section hidden">
+                <h3>Score Entry</h3>
+                <div id="score-inputs"></div>
+                <button id="confirm-scores">Confirm Scores</button>
+            </div>
+
+            <!-- Results Section -->
+            <div id="results-section" class="results-section">
+                <h3>Current Scores</h3>
+                <table id="scores-table">
+                    <thead>
+                        <tr>
+                            <th>Player</th>
+                            <th>Total Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="scores-body">
+                    </tbody>
+                </table>
+                <button id="undo-hand">Undo Last Hand</button>
+                <button id="export-game">Export Game</button>
+                <button id="show-stats">Show Statistics</button>
+            </div>
+
+            <!-- Hand History Section -->
+            <div id="history-section" class="history-section">
+                <h3>Hand History</h3>
+                <div id="hand-history"></div>
+            </div>
+            
+            <!-- Statistics Section -->
+            <div id="stats-section" class="stats-section hidden">
+                <h3>Game Statistics</h3>
+                <div id="stats-content"></div>
+                <button id="hide-stats">Hide Statistics</button>
+            </div>
+        </section>
+
+        <!-- Game Completed Section -->
+        <section id="completed-section" class="game-section hidden">
+            <h2>Game Completed!</h2>
+            <div id="final-results"></div>
+            <button id="new-game">New Game</button>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

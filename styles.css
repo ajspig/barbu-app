@@ -1,0 +1,702 @@
+/* Base styles and reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+    padding: 10px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+header h1 {
+    color: #2c3e50;
+    font-size: 2rem;
+}
+
+/* Game sections */
+.game-section {
+    margin-bottom: 30px;
+}
+
+.game-section.hidden {
+    display: none;
+}
+
+/* Player setup */
+.player-setup {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.player-setup h3 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.player-inputs {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.player-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.player-input label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.player-input input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+/* Game header */
+.game-header {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #e3f2fd;
+    border-radius: 8px;
+}
+
+.dealer-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dealer-info h2 {
+    color: #1565c0;
+    font-size: 1.5rem;
+}
+
+.progress-info {
+    font-weight: bold;
+    color: #1565c0;
+    background-color: #bbdefb;
+    padding: 8px 12px;
+    border-radius: 20px;
+}
+
+.available-contracts {
+    background-color: #f1f8e9;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.available-contracts h3 {
+    color: #2e7d32;
+    margin-bottom: 10px;
+}
+
+.available-contracts ul {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+}
+
+.available-contracts li {
+    background-color: #c8e6c9;
+    padding: 8px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Contract selection */
+.contract-selection {
+    background-color: #fff3e0;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.contract-selection h3 {
+    color: #ef6c00;
+    margin-bottom: 15px;
+}
+
+.contract-selection select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.contract-selection button {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.contract-selection button:hover {
+    background-color: #f57c00;
+}
+
+/* Doubling section */
+.doubling-section {
+    background-color: #fce4ec;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.doubling-section h3 {
+    color: #c2185b;
+    margin-bottom: 15px;
+}
+
+.doubling-section button {
+    width: 100%;
+    padding: 12px;
+    background-color: #e91e63;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.doubling-section button:hover {
+    background-color: #d81b60;
+}
+
+/* Bidding section */
+.bidding-section {
+    background-color: #e8f5e9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.bidding-section h3 {
+    color: #2e7d32;
+    margin-bottom: 15px;
+}
+
+.bid-inputs {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.bid-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.bid-input label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.bid-input input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.bidding-section button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.bidding-section button:hover {
+    background-color: #43a047;
+}
+
+/* Domino section */
+.domino-section {
+    background-color: #e0f7fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.domino-section h3 {
+    color: #00838f;
+    margin-bottom: 15px;
+}
+
+.position-inputs {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.position-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.position-input label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.position-input select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.domino-section button {
+    width: 100%;
+    padding: 12px;
+    background-color: #00bcd4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.domino-section button:hover {
+    background-color: #00acc1;
+}
+
+/* Scoring section */
+.scoring-section {
+    background-color: #f3e5f5;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.scoring-section h3 {
+    color: #6a1b9a;
+    margin-bottom: 15px;
+}
+
+.scoring-section button {
+    width: 100%;
+    padding: 12px;
+    background-color: #9c27b0;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.scoring-section button:hover {
+    background-color: #8e24aa;
+}
+
+/* Results section */
+.results-section {
+    background-color: #fff8e1;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.results-section h3 {
+    color: #ff8f00;
+    margin-bottom: 15px;
+}
+
+#scores-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+#scores-table th,
+#scores-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#scores-table th {
+    background-color: #ffecb3;
+    font-weight: bold;
+}
+
+.results-section button {
+    padding: 10px 15px;
+    background-color: #ffc107;
+    color: #333;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.results-section button:hover {
+    background-color: #ffb300;
+}
+
+/* Statistics section */
+.stats-section {
+    background-color: #e1f5fe;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.stats-section h3 {
+    color: #01579b;
+    margin-bottom: 15px;
+}
+
+.stats-section h4 {
+    color: #0277bd;
+    margin: 15px 0 10px 0;
+}
+
+.stats-section h5 {
+    color: #0288d1;
+    margin: 10px 0 5px 0;
+}
+
+.stats-section h6 {
+    color: #039be5;
+    margin: 8px 0 4px 0;
+    font-size: 0.9rem;
+}
+
+.player-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.player-stat-card {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 6px;
+    border-left: 4px solid #039be5;
+}
+
+.player-stat-card ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.player-stat-card li {
+    padding: 3px 0;
+    font-size: 0.9rem;
+}
+
+.stats-section button {
+    padding: 10px 15px;
+    background-color: #039be5;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.stats-section button:hover {
+    background-color: #0288d1;
+}
+
+/* History section */
+.history-section {
+    background-color: #fafafa;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.history-section h3 {
+    color: #616161;
+    margin-bottom: 15px;
+}
+
+.hand-history-item {
+    background-color: #eeeeee;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border-left: 4px solid #9e9e9e;
+}
+
+.hand-history-item h4 {
+    color: #424242;
+    margin-bottom: 10px;
+}
+
+.hand-history-item p {
+    margin-bottom: 5px;
+}
+
+/* Completed section */
+.completed-section {
+    text-align: center;
+    background-color: #e8f5e9;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.completed-section h2 {
+    color: #2e7d32;
+    margin-bottom: 20px;
+}
+
+.completed-section button {
+    padding: 15px 30px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.completed-section button:hover {
+    background-color: #43a047;
+}
+
+/* Error messages */
+.error {
+    color: #d32f2f;
+    background-color: #ffebee;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 10px 0;
+    border-left: 4px solid #d32f2f;
+}
+
+/* Responsive design */
+@media (min-width: 600px) {
+    .player-inputs {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .bid-inputs {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .position-inputs {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .dealer-info {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 768px) {
+    body {
+        padding: 20px;
+    }
+    
+    .container {
+        padding: 30px;
+    }
+    
+    .bid-inputs {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .position-inputs {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #e0e0e0;
+    }
+    
+    .container {
+        background-color: #1e1e1e;
+    }
+    
+    header h1 {
+        color: #bb86fc;
+    }
+    
+    .player-setup {
+        background-color: #2d2d2d;
+    }
+    
+    .player-input input {
+        background-color: #333;
+        border-color: #555;
+        color: white;
+    }
+    
+    .game-header {
+        background-color: #1a237e;
+    }
+    
+    .dealer-info h2 {
+        color: #90caf9;
+    }
+    
+    .progress-info {
+        color: #90caf9;
+        background-color: #0d47a1;
+    }
+    
+    .available-contracts {
+        background-color: #1b5e20;
+    }
+    
+    .available-contracts h3 {
+        color: #a5d6a7;
+    }
+    
+    .available-contracts li {
+        background-color: #388e3c;
+        color: white;
+    }
+    
+    .contract-selection {
+        background-color: #e65100;
+    }
+    
+    .contract-selection h3 {
+        color: #ffcc80;
+    }
+    
+    .contract-selection select {
+        background-color: #333;
+        border-color: #555;
+        color: white;
+    }
+    
+    .doubling-section {
+        background-color: #880e4f;
+    }
+    
+    .doubling-section h3 {
+        color: #f8bbd0;
+    }
+    
+    .bidding-section {
+        background-color: #1b5e20;
+    }
+    
+    .bidding-section h3 {
+        color: #a5d6a7;
+    }
+    
+    .bid-input input {
+        background-color: #333;
+        border-color: #555;
+        color: white;
+    }
+    
+    .domino-section {
+        background-color: #006064;
+    }
+    
+    .domino-section h3 {
+        color: #80deea;
+    }
+    
+    .position-input select {
+        background-color: #333;
+        border-color: #555;
+        color: white;
+    }
+    
+    .scoring-section {
+        background-color: #4a148c;
+    }
+    
+    .scoring-section h3 {
+        color: #ce93d8;
+    }
+    
+    .results-section {
+        background-color: #3e2723;
+    }
+    
+    .results-section h3 {
+        color: #ffcc80;
+    }
+    
+    #scores-table th {
+        background-color: #5d4037;
+    }
+    
+    #scores-table th,
+    #scores-table td {
+        border-bottom-color: #555;
+    }
+    
+    .history-section {
+        background-color: #212121;
+    }
+    
+    .hand-history-item {
+        background-color: #424242;
+        border-left-color: #9e9e9e;
+    }
+    
+    .hand-history-item h4 {
+        color: #e0e0e0;
+    }
+}
