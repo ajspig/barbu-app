@@ -73,6 +73,30 @@
                 <button id="confirm-doubles">Confirm Doubles</button>
             </div>
 
+            <!-- Bidding Section (for Trumps) -->
+            <div id="bidding-section" class="bidding-section hidden">
+                <h3>Bid Points</h3>
+                <div class="bid-inputs">
+                    <div class="bid-input">
+                        <label for="bid-player1">Player 1 Bid:</label>
+                        <input type="number" id="bid-player1" min="0" max="65">
+                    </div>
+                    <div class="bid-input">
+                        <label for="bid-player2">Player 2 Bid:</label>
+                        <input type="number" id="bid-player2" min="0" max="65">
+                    </div>
+                    <div class="bid-input">
+                        <label for="bid-player3">Player 3 Bid:</label>
+                        <input type="number" id="bid-player3" min="0" max="65">
+                    </div>
+                    <div class="bid-input">
+                        <label for="bid-player4">Player 4 Bid:</label>
+                        <input type="number" id="bid-player4" min="0" max="65">
+                    </div>
+                </div>
+                <button id="confirm-bids">Confirm Bids</button>
+            </div>
+
             <!-- Domino Position Selection -->
             <div id="domino-section" class="domino-section hidden">
                 <h3>Domino Finishing Positions</h3>
@@ -169,6 +193,6 @@
         </section>
     </div>
 
-    <script src="app.js" type="module"></script>
+    <script src="app.js"></script>
 </body>
 </html>

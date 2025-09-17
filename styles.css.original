@@ -204,6 +204,59 @@ header h1 {
     background-color: #d81b60;
 }
 
+/* Bidding section */
+.bidding-section {
+    background-color: #e8f5e9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.bidding-section h3 {
+    color: #2e7d32;
+    margin-bottom: 15px;
+}
+
+.bid-inputs {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.bid-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.bid-input label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.bid-input input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.bidding-section button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.bidding-section button:hover {
+    background-color: #43a047;
+}
+
 /* Domino section */
 .domino-section {
     background-color: #e0f7fa;
@@ -471,22 +524,13 @@ header h1 {
     border-left: 4px solid #d32f2f;
 }
 
-/* Warning messages */
-.warning {
-    color: #f57c00;
-    background-color: #fff3e0;
-    padding: 15px;
-    border-radius: 8px;
-    margin: 15px 0;
-    border: 2px solid #f57c00;
-    text-align: center;
-    font-weight: bold;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
 /* Responsive design */
 @media (min-width: 600px) {
     .player-inputs {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .bid-inputs {
         grid-template-columns: repeat(2, 1fr);
     }
     
@@ -506,6 +550,10 @@ header h1 {
     
     .container {
         padding: 30px;
+    }
+    
+    .bid-inputs {
+        grid-template-columns: repeat(4, 1fr);
     }
     
     .position-inputs {
@@ -586,6 +634,19 @@ header h1 {
         color: #f8bbd0;
     }
     
+    .bidding-section {
+        background-color: #1b5e20;
+    }
+    
+    .bidding-section h3 {
+        color: #a5d6a7;
+    }
+    
+    .bid-input input {
+        background-color: #333;
+        border-color: #555;
+        color: white;
+    }
     
     .domino-section {
         background-color: #006064;
