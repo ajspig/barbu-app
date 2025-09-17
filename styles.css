@@ -524,6 +524,19 @@ header h1 {
     border-left: 4px solid #d32f2f;
 }
 
+/* Warning messages */
+.warning {
+    color: #f57c00;
+    background-color: #fff3e0;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+    border: 2px solid #f57c00;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 /* Responsive design */
 @media (min-width: 600px) {
     .player-inputs {

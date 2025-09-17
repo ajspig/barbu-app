@@ -91,6 +91,14 @@ function handlePlayerSetup(e) {
         return;
     }
     
+    // Check for duplicate player names
+    const playerNames = [player1, player2, player3, player4];
+    const uniqueNames = new Set(playerNames);
+    if (uniqueNames.size !== playerNames.length) {
+        showError('All player names must be unique', 'warning');
+        return;
+    }
+    
     // Initialize players
     gameState.players = [
         { id: 0, name: player1, totalScore: 0 },
@@ -1233,18 +1241,22 @@ function loadGameState() {
 }
 
 // Show error message
-function showError(message) {
+function showError(message, styleClass = 'error') {
     // Remove existing error messages
-    const existingErrors = document.querySelectorAll('.error');
+    const existingErrors = document.querySelectorAll('.error, .warning');
     existingErrors.forEach(error => error.remove());
     
     // Create new error message
     const errorDiv = document.createElement('div');
-    errorDiv.className = 'error';
+    errorDiv.className = styleClass;
     errorDiv.textContent = message;
     
-    // Insert error message at the top of the game section
-    gameSection.insertBefore(errorDiv, gameSection.firstChild);
+    // Insert error message at the top of the visible section
+    if (setupSection.classList.contains('hidden')) {
+        gameSection.insertBefore(errorDiv, gameSection.firstChild);
+    } else {
+        setupSection.appendChild(errorDiv);
+    }
     
     // Remove error message after 5 seconds
     setTimeout(() => {
