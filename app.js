@@ -53,6 +53,7 @@ const hideStatsBtn = document.getElementById('hide-stats');
 const statsSection = document.getElementById('stats-section');
 const statsContent = document.getElementById('stats-content');
 const newGameBtn = document.getElementById('new-game');
+const restartGameBtn = document.getElementById('restart-game');
 
 // Initialize game
 function initGame() {
@@ -70,6 +71,7 @@ function initGame() {
     showStatsBtn.addEventListener('click', showStats);
     hideStatsBtn.addEventListener('click', hideStats);
     newGameBtn.addEventListener('click', startNewGame);
+    restartGameBtn.addEventListener('click', restartGame);
     
     // Load saved game state if available
     loadGameState();
@@ -1300,6 +1302,46 @@ function showStats() {
 // Hide statistics section
 function hideStats() {
     statsSection.classList.add('hidden');
+}
+
+// Restart game function
+function restartGame() {
+    // Reset game state
+    gameState = {
+        players: [],
+        currentDealerIndex: 0,
+        currentHand: 1,
+        hands: [],
+        dealerContracts: {},
+        doublingCompliance: {}
+    };
+    
+    // Initialize doubling compliance tracking
+    for (let dealer = 0; dealer < 4; dealer++) {
+        gameState.doublingCompliance[dealer] = {};
+        for (let player = 0; player < 4; player++) {
+            if (player !== dealer) {
+                gameState.doublingCompliance[dealer][player] = 0;
+            }
+        }
+    };
+    
+    // Clear local storage
+    localStorage.removeItem('barbuGameState');
+    
+    // Hide game section and show setup section
+    gameSection.classList.add('hidden');
+    setupSection.classList.remove('hidden');
+    
+    // Reset form inputs
+    document.getElementById('player1').value = '';
+    document.getElementById('player2').value = '';
+    document.getElementById('player3').value = '';
+    document.getElementById('player4').value = '';
+    
+    // Reattach form submission listener to ensure it works after restart
+    playerForm.removeEventListener('submit', handlePlayerSetup);
+    playerForm.addEventListener('submit', handlePlayerSetup);
 }
 
 // Initialize the app when the page loads
